@@ -1,9 +1,11 @@
 // Spolecny soubor, kde budeme obe delat zmeny.
+// vlozila VK, konzultovno a propravovano spolecne
 
 
 #include <cmath>
 #include <iostream>
-
+#include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -25,6 +27,32 @@ class Polymer {
 			result[0] = new float[2];
 			result[0][0] = 0.0;
 			result[0][1] = 0.0;
+			
+			float angle = 0.0;
+			for (int i=1;i<n;i++){
+			     result[i] = new float[2];
+			     float random_number = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+			     //float rand_direction = (random_number > 0.5)?1:-1;
+			     float rand_direction;
+			     if (random_number > 0.5){
+			    	rand_direction = 1;
+			     }else{
+				rand_direction = -1;
+			     }
+			    
+			    angle = angle + rand_direction * theta;
+			  
+			    float dx = b*cos(angle);
+			    float dy = b*sin(angle);
+				
+			    result[i][0] = result[i-1][0] + dx;
+			    result[i][1] = result[i-1][1] + dy;
+			}
+			return result;
+		}
 		
-
+		float get_re(int n){
+			return n * b * b * c;
+		}
+		
 };	

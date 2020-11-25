@@ -20,4 +20,11 @@ class Polymer {
 			c = c1;
 		};
 
+		float** runSimulation(int n){
+			float **result = new float*[n];
+			result[0] = new float[2];
+			result[0][0] = 0.0;
+			result[0][1] = 0.0;
+		
+
 };	

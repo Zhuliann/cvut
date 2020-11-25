@@ -1,1 +1,22 @@
 Spolecny soubour, kde budeme obe delat zmeny.
+
+#include <cmath>
+#include <iostream>
+
+
+using namespace std;
+
+class Polymer {
+	protected:
+		float theta;
+		float b;
+		float c;
+				
+	public:
+		Polymer(float c1, float b1){
+			theta = acos((c1 - 1) / (1 + c1));
+			b = b1;
+			c = c1;
+		};
+
+};	

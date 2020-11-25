@@ -1,4 +1,5 @@
-Spolecny soubour, kde budeme obe delat zmeny.
+// Spolecny soubor, kde budeme obe delat zmeny.
+
 
 #include <cmath>
 #include <iostream>

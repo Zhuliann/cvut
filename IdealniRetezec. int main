@@ -1,0 +1,33 @@
+int main(){
+
+	//Polymer poly = Polymer(4.7, 0.84);
+	//Polymer polystyren = Polymer(9.5, 1.8);
+	float c, b;
+	string selection;
+	
+	do {
+		cout << "Select the polymer:\n";
+		cout << "1. 1,4-polyisopren\n";
+		cout << "2. Atakticky polystyren\n";
+		cout << "3. Your option\n";
+		cin >> selection;
+		
+		if (selection=="1"){
+			c = 4.7;
+			b = 0.84;
+		}else if (selection=="2"){
+			c = 9.5;
+			b = 1.8;
+		}else if (selection=="3"){
+			cout << "Select C: ";
+			cin >> c;
+			cout << "Select B: ";
+			cin >> b;
+		}else{
+			cout << "Please, select 1,2, or 3.\n";
+		}
+	}while ((selection!="1")&&(selection!="2")&&(selection!="3"));
+
+	int n; // = 500;
+	cout << "Zadej N: ";
+	cin >> n;

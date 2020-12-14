@@ -18,29 +18,7 @@ class Polymer {
 			b = b1;
 			c = c1;
 		};
-		
-		/*
-		N  0(X)  1(Y)
-		0  0.0   0.0
-		1   .     .
-		2  *
-		3  *
-		4  *
-		...
-		N-1 *
-		
-		0 - RAND_MAX
-		[0;1]
-		
-		5 / 10 -> 0
-		5.0 / 10 -> 0.5
-		5 / 10.0 -> 0.5 
-
-		rand() / RAND_MAX -> 0
-		<float> rand() / RAND_MAX -> [0;1]
-		
-		*/
-		
+				
 		float** runSimulation(int n){
 			float **result = new float*[n];
 			result[0] = new float[2];
@@ -108,3 +86,18 @@ int main(){
 	int n; // = 500;
 	cout << "Zadej N: ";
 	cin >> n;
+	
+	Polymer poly = Polymer(c, b);
+	
+	float **res = poly.runSimulation(n);
+	ofstream resultFile;
+	resultFile.open ("result.txt");
+	for (int i=0;i<n;i++){
+		resultFile << res[i][0] << "," << res[i][1] << "\n";
+	}
+	resultFile.close();
+	float r_e_real = pow(res[n-1][0] - res[0][0], 2.0) + pow(res[n-1][1] - res[0][1], 2.0);
+	cout << "Real length: " << r_e_real << "\n";
+	cout << "Theoretical length: " << poly.get_re(n) << "\n";
+	//delete poly;
+}
